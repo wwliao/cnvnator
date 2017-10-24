@@ -14,12 +14,14 @@ MAINTAINER Wen-Wei Liao <wen-wei.liao@wustl.edu>
 
 RUN cd /home/biodocker && \
     GZIP=root_v6.10.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz && \
-    wget --quiet -O - https://root.cern.ch/download/$GZIP | tar zxf -
+    wget --quiet https://root.cern.ch/download/$GZIP -O /home/biodocker/$GZIP && \
+    tar zxf /home/biodocker/$GZIP && \
+    rm /home/biodocker/$GZIP
 
-RUN cd /home/biodocker && \
-    ZIP=CNVnator_v0.3.3.zip && \
-    wget --quiet -O - https://github.com/abyzovlab/CNVnator/releases/download/v0.3.3/$ZIP | unzip - && \
-    cd /home/biodocker/CNVnator_v0.3.3/src/samtools && make
+RUN ZIP=CNVnator_v0.3.3.zip && \
+    wget --quiet https://github.com/abyzovlab/CNVnator/releases/download/v0.3.3/$ZIP -O /home/biodocker/$ZIP && \
+    unzip /home/biodocker/$ZIP && cd /home/biodocker/CNVnator_v0.3.3/src/samtools && make && \
+    rm /home/biodocker/$ZIP
 
 ENV ROOTSYS="/home/biodocker/root"
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$ROOTSYS/lib"
