@@ -2,9 +2,9 @@ FROM ubuntu:xenial
 
 MAINTAINER Wen-Wei Liao <wen-wei.liao@wustl.edu>
 
-RUN apt-get update && \
+RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y apt-utils build-essential zlib1g-dev libncurses5-dev \
-    wget gzip unzip && \
+    wget gzip unzip libnss-sss && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /home/software && \
