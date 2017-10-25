@@ -1,6 +1,6 @@
 ## CNVnator Docker Image
 
-### Run docker on local machine
+### Run CNVnator on local machine
 
 1. Pull CNVnator docker image
 
@@ -38,7 +38,7 @@
     docker run -v /path/to/workplace:/data wwliao/cnvnator -root out.root -call 500 > out.call.txt
     ```
 
-### Run docker on LSF cluster
+### Run CNVnator on LSF cluster
 
 1. Extracting read mapping from BAM/SAM files
 
