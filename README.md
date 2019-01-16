@@ -11,31 +11,31 @@
 2. Extracting read mapping from BAM/SAM files
 
     ```
-    docker run -v /path/to/workplace:/data wwliao/cnvnator -unique -root out.root -tree input.bam
+    docker run -v /path/to/workplace:/data wwliao/cnvnator cnvnator -unique -root out.root -tree input.bam
     ```
 
 3. Generating a histogram
 
     ```
-    docker run -v /path/to/workplace:/data wwliao/cnvnator -root out.root -his 500 -d /path/to/chrom/seqs
+    docker run -v /path/to/workplace:/data wwliao/cnvnator cnvnator -root out.root -his 500 -d /path/to/chrom/seqs
     ```
 
 4. Calculating statistics
 
     ```
-    docker run -v /path/to/workplace:/data wwliao/cnvnator -root out.root -stat 500
+    docker run -v /path/to/workplace:/data wwliao/cnvnator cnvnator -root out.root -stat 500
     ```
 
 5. RD signal partitioning
 
     ```
-    docker run -v /path/to/workplace:/data wwliao/cnvnator -root out.root -partition 500
+    docker run -v /path/to/workplace:/data wwliao/cnvnator cnvnator -root out.root -partition 500
     ```
 
 6. CNV calling
 
     ```
-    docker run -v /path/to/workplace:/data wwliao/cnvnator -root out.root -call 500 > out.call.txt
+    docker run -v /path/to/workplace:/data wwliao/cnvnator cnvnator -root out.root -call 500 > out.call.txt
     ```
 
 ### Run CNVnator on LSF cluster
